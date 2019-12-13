@@ -36,7 +36,7 @@ class City extends React.Component{
              />
              <ul>
 				{filteredCity.map(ciudad => {
-					let rutaciudad = '/Paises/' + ciudad.ciudad;
+					let rutaciudad = '/Cities/' + ciudad.ciudad;
 					return (
 						<Link to={rutaciudad} key={ciudad._id}>
 						<li>						

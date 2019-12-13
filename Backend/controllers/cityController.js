@@ -20,7 +20,7 @@ const citycontroller={
         res.send('Ciudad cargada');
     },
     borrarciudades:async(req,res)=>{
-        var id=req.params.id;//le llega desde la url
+        var id=req.params.id;//le llega desde la url 
         await City.findOneAndDelete({_id:id}),
         res.json('Respuesta: Ciudad Borrada');
     },

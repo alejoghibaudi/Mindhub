@@ -26,7 +26,7 @@ export const login = user => {
       password: user.password
     })
     .then(response => {
-      console.log(response.data);
+      console.log(response.data + 'jpñasd');
       if (typeof response.data === 'string'){
       localStorage.setItem('usertoken', response.data)
       return response.data
@@ -43,7 +43,6 @@ export const login = user => {
 export const profile = user => {
   return axios
     .get('http://localhost:5000/api/profile', {
-      //  headers: { Authorization: ` ${this.getToken()}` }
     })
     .then(response => {
       console.log(response)

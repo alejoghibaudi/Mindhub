@@ -18,7 +18,7 @@ class Login extends React.Component{
     }
     onSubmit(e){
         e.preventDefault()
-
+        const token=localStorage.usertoken
         const user={
             email:this.state.email,
             password:this.state.password
@@ -26,7 +26,10 @@ class Login extends React.Component{
         login(user).then(res=>{
             if(res){
                this.props.history.push('/Profile')
-               console.log(res)
+               console.log(res + 'hola')
+               return res={res}
+            }else{
+                this.props.history.push('/Login')
             }
         })
     }
