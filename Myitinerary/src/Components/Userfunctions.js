@@ -18,7 +18,6 @@ export const register = newUser => {
       }
     })
 }
-
 export const login = user => {
   return axios
     .post('http://localhost:5000/api/login', {
@@ -39,7 +38,7 @@ export const login = user => {
       console.log(err)
     })
 }
-
+ 
 export const profile = user => {
   return axios
     .get('http://localhost:5000/api/profile', {

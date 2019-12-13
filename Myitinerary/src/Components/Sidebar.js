@@ -40,7 +40,7 @@ class Sidebar extends React.Component {
             </Link>
           </li>
           <li className="nav-item">
-            <a href="" onClick={this.logOut.bind(this)} >
+            <a href="#" onClick={this.logOut.bind(this)} >
               Logout
             </a>
           </li>

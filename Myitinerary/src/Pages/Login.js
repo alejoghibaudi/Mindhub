@@ -1,6 +1,7 @@
 import React from 'react';
 import Sidebar from '../Components/Sidebar';
 import {login} from '../Components/Userfunctions';
+import GoogleLogin from 'react-google-login';
 
 class Login extends React.Component{
     constructor(){
@@ -18,7 +19,7 @@ class Login extends React.Component{
     }
     onSubmit(e){
         e.preventDefault()
-        const token=localStorage.usertoken
+
         const user={
             email:this.state.email,
             password:this.state.password
@@ -26,14 +27,14 @@ class Login extends React.Component{
         login(user).then(res=>{
             if(res){
                this.props.history.push('/Profile')
-               console.log(res + 'hola')
-               return res={res}
-            }else{
-                this.props.history.push('/Login')
+               console.log(res)
             }
         })
     }
     render(){
+        const responseGoogle = (response) => {
+            console.log(response);
+          }
         return(
             <div className="container">
             <div className="row">
@@ -60,12 +61,19 @@ class Login extends React.Component{
                             <button type="submit">
                                     sing in
                             </button>
+                            <GoogleLogin
+                            clientId="48856370899-7utk9j2kfe3kg2ct9jog553h9dlim2jn.apps.googleusercontent.com" 
+                            buttonText="LOGIN WITH GOOGLE"
+                            onSuccess={responseGoogle}
+                            onFailure={responseGoogle}
+                             />
                     </form>
                 </div>
             </div>
             </div>     
         )
     }
+
 }
 
 export default Login;

@@ -4,6 +4,8 @@ import {getCity} from '../Redux/Actions/Cityactions';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
+import '../App.css';
+
 class City extends React.Component{
     static propTypes={
         getCity:PropTypes.func.isRequired,
@@ -28,26 +30,36 @@ class City extends React.Component{
             (city)=>{return city.ciudad.toLowerCase().indexOf(this.state.search)===0}
         )
         return(
-            <div>
+            <div className="container">
+            <div className="row">
             <Sidebar/>
-            <input 
+            <div className="divfiltro">
+            <input  type="text" className="filtro"
             value={this.state.search}
             onChange={this.updateSearch.bind(this)}
              />
-             <ul>
+             </div>
+             <div className="divlistaciudades">
+             <ul className="ulciudades">
 				{filteredCity.map(ciudad => {
 					let rutaciudad = '/Cities/' + ciudad.ciudad;
 					return (
 						<Link to={rutaciudad} key={ciudad._id}>
-						<li>						
-							<button>
-									{ciudad.ciudad} - {ciudad.pais}
-							</button>
+						<div className="divciudades">
+						<li className="liciudades">
+						<button
+						className="botonciudades"
+						style={{backgroundImage: `url(${ciudad.img})`, backgroundPosition:"center"}}>
+						<p className="textoboton">-{ciudad.ciudad}--{ciudad.pais}-</p>
+						</button>
 						</li>
+						</div>
 						</Link>
 					);
 				})}
 			</ul>
+            </div>
+            </div>
             </div>
         )
     }

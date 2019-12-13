@@ -4,7 +4,7 @@ import Sidebar from './Sidebar'
 import Botonactivity from './Botonactivity';
 
 class DemoCarousel extends React.Component {
-
+    
     constructor(props) {
         super(props)
     }
