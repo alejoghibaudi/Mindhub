@@ -2,7 +2,8 @@ const mongoose=require('mongoose');
 var uniqueValidator=require('mongoose-unique-validator');
 
 const activitySchema=new mongoose.Schema({
-    ciudad: {type:String,require:true,unique:true},
+    ciudad: {type:String,require:true},
+    title:{type:String,require:true,unique:true},
     img: {type:String,require:true}
 })
 

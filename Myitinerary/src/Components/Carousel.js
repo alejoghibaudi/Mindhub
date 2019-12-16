@@ -1,24 +1,26 @@
 import React  from 'react'
-import { Card, CardTitle, CardText,Collapse, CardGroup} from 'reactstrap'
+import { Card, CardTitle, CardText, CardGroup} from 'reactstrap'
 import Sidebar from './Sidebar'
 import Botonactivity from './Botonactivity';
-
+import axios from 'axios'
 class DemoCarousel extends React.Component {
     
     constructor(props) {
-        super(props)
+        super(props);
+        this.state={
+            actividades:[]
+        }
     }
-
-    
-    mostrarusuario=(e)=>{
-        let tituloamostrar=e.target.title;
-        console.log('hicisteclick en '+tituloamostrar)
-        const state=true
+    async componentDidMount(){
+        const res = await axios.get('http://localhost:5000/api/activity');
+        this.setState({actividades:res.data.data})
     }
 
     render() {
+        
         const itinerario = this.props.itinerario
-        const state = false
+        const act = this.state.actividades
+      
         return (
                 <div className="container">
                     <div className="row">
@@ -30,15 +32,16 @@ class DemoCarousel extends React.Component {
                                 <Card body outline color="danger">
                                     <CardTitle>{itinerario.title}</CardTitle>
                                     <CardText>
-                                        <img src={itinerario.profilepicture} style={{position:"relative", width:"20%"}}/>
+                                        <img src={itinerario.profilepicture} 
+                                        style={{position:"relative", width:"20%"}}
+                                        />
                                         <p>{itinerario.username}</p>
                                     </CardText>
                                     <Botonactivity 
+                                    ciudad={itinerario.ciudad}
                                     titulo={itinerario.title}
-                                    mostrarusuarios={this.mostrarusuario} />
-                                   <Collapse state={true}>
-                                       Hola
-                                   </Collapse>
+                                    actividades={act} 
+                                    />
                                 </Card>
                                 </CardGroup>
                             </div>

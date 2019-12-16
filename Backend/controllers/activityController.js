@@ -1,9 +1,8 @@
 const Activity = require('../models/activityModels');
 const activitycontroller = {
 	listaractividades: async (req, res) => {
-		var ciudad = req.params.ciudad
-		const data = await Activity.find({ciudad: ciudad});
-		res.json({ data });
+		const data=await Activity.find();
+        res.json({data});
 	},
 	borraractividades: async (req, res) => {
 		var id = req.params.id;
@@ -14,11 +13,13 @@ const activitycontroller = {
 		var id = req.params.id;
 		var ciudad = req.body.ciudad;
 		var img = req.body.img;
+		var title=req.body.img;
 
 		await Activity.findOneAndUpdate(
 			{ _id: id },
 			{ ciudad, 
-			  img
+			  img,
+			  title
 			 }
 		);
 		res.json({ Respuesta: 'Okey' });
@@ -26,12 +27,14 @@ const activitycontroller = {
 	cargaractividades: async (req, res) => {
 		const {
 			ciudad,
-			img
+			img,
+			title
 		} = req.body;
 
 		const nuevaactividad = new Activity({
 			ciudad,
-			img
+			img,
+			title
 		});
 
 		await nuevaactividad.save(); //espera grabar 

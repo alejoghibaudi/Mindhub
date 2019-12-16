@@ -6,7 +6,7 @@ const router=express.Router();
 
 //Requiere la ruta get post delete put
 
-router.route('/activity/:ciudad')
+router.route('/activity')
     .get(activitycontroller.listaractividades)
     .post(activitycontroller.cargaractividades);
 

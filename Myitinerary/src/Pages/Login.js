@@ -1,7 +1,8 @@
 import React from 'react';
 import Sidebar from '../Components/Sidebar';
 import {login} from '../Components/Userfunctions';
-import GoogleLogin from 'react-google-login';
+import GoogleAuth from "../Components/Googleauth";
+import {Form} from 'reactstrap';
 
 class Login extends React.Component{
     constructor(){
@@ -40,7 +41,7 @@ class Login extends React.Component{
             <div className="row">
             <Sidebar/>       
                 <div>
-                    <form onSubmit={this.onSubmit}>
+                    <Form onSubmit={this.onSubmit}>
                     <h1>Please Sign In</h1>
                             <div>
                                 <label htmlFor="email">Email address</label>
@@ -61,13 +62,8 @@ class Login extends React.Component{
                             <button type="submit">
                                     sing in
                             </button>
-                            <GoogleLogin
-                            clientId="48856370899-7utk9j2kfe3kg2ct9jog553h9dlim2jn.apps.googleusercontent.com" 
-                            buttonText="LOGIN WITH GOOGLE"
-                            onSuccess={responseGoogle}
-                            onFailure={responseGoogle}
-                             />
-                    </form>
+                            <GoogleAuth history={this.props.history} />
+                    </Form>
                 </div>
             </div>
             </div>     

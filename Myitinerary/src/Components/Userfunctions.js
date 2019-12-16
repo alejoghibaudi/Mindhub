@@ -39,6 +39,27 @@ export const login = user => {
     })
 }
  
+export const googlelogin = user => {
+  return axios
+    .post('http://localhost:5000/api/login', {
+      email: user.email,
+      password: user.password
+    })
+    .then(response => {
+      console.log(response.data);
+      if (typeof response.data === 'string'){
+      localStorage.setItem('usertoken', response.data)
+      window.location.reload();
+      } else {
+        console.log("password incorrect");
+      }
+      return response.data
+    })
+    .catch(err => {
+      console.log(err)
+    })
+}
+
 export const profile = user => {
   return axios
     .get('http://localhost:5000/api/profile', {
