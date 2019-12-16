@@ -7,15 +7,10 @@ export const register = newUser => {
       last_name: newUser.last_name,
       email: newUser.email,
       password: newUser.password
+
     })
     .then(res => {
-      if(res.data.status){
-        alert("Registered");
-        return res.data.status
-      }else{
-        alert(res.data.error);
-        return res.data.error
-      }
+     return res.data
     })
 }
 export const login = user => {
@@ -25,14 +20,14 @@ export const login = user => {
       password: user.password
     })
     .then(response => {
-      console.log(response.data + 'jpñasd');
+      console.log(response.data);
       if (typeof response.data === 'string'){
       localStorage.setItem('usertoken', response.data)
-      return response.data
+      
       } else {
         console.log("password incorrect");
-        alert("usuario o contraseña incorrectos")
       }
+      return response.data
     })
     .catch(err => {
       console.log(err)
@@ -49,7 +44,7 @@ export const googlelogin = user => {
       console.log(response.data);
       if (typeof response.data === 'string'){
       localStorage.setItem('usertoken', response.data)
-      window.location.reload();
+     
       } else {
         console.log("password incorrect");
       }

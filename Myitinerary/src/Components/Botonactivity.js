@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Collapse, Button, CardBody, Card } from 'reactstrap';
+import Comentarios from './Comentarios'
 
 const Example = (props) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -31,6 +32,7 @@ const Example = (props) => {
                                 <CardBody>
                                     <div style={{width:"20%", height:"100%", position:"relative",alignItems:"center"}}>
                                     <img src={partofact.img} style={{width:"100%", height:"100%",position:"relative",textAlign:"center"}}/>
+                                    <Comentarios title={props.titulo}/>
                                     </div>
                                 </CardBody>
                                 </Card>

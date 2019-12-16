@@ -49,7 +49,7 @@ class City extends React.Component{
 						<li className="liciudades">
 						<button
 						className="botonciudades"
-						style={{backgroundImage: `url(${ciudad.img})`, backgroundPosition:"center"}}>
+						style={{backgroundImage: `url(${ciudad.img})`, backgroundSize: 'cover', backgroundPosition:"center"}}>
 						<p className="textoboton">-{ciudad.ciudad}--{ciudad.pais}-</p>
 						</button>
 						</li>

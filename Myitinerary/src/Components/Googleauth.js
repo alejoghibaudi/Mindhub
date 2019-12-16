@@ -14,19 +14,21 @@ class GoogleAuth extends Component {
             console.log(decoded);
 
             const newUser = {
-                username: decoded.name,
-                email: decoded.email,
-                password: decoded.email,
-                profileImg: decoded.picture
+                first_name:decoded.given_name,
+                last_name:  decoded.family_name,
+                email:decoded.email,
+                password:decoded.email,
+               
             }
             const user = {
                 email: newUser.email,
                 password: newUser.password
             }
             console.log(newUser);
+     
             register(newUser).then(res => {   
                 googlelogin(user);
-                history.push(`/Cities`);    
+                history.push(`/Profile`);    
             })
         }
         return (

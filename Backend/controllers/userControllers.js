@@ -30,7 +30,7 @@ const usercontroller={
                             res.json({status:user.email+' registed!'})
                         }).catch(err=>{console.log('error: '+err)})            
                 })
-            }else{res.json({error:'User already exist'})}
+            }else{res.json({error:user.email})}
         }).catch(err=>{console.log('error ' +err)})
     },
 
