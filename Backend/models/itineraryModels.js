@@ -10,6 +10,7 @@ const itinerarySchema = new mongoose.Schema({
 	duration: { type: Number, required: true },
 	price: { type: Number, required: true }, 
 	hashtag: { type: Array, required: true }
+	
 });
 
 const Itinerary = mongoose.model('itinerary', itinerarySchema);

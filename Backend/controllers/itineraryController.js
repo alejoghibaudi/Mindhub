@@ -21,6 +21,7 @@ const itinerarycontroller = {
 		var duration= req.body.duration;
 		var price = req.body.price;
 		var hashtag=req.body.hashtag;
+		
 
 		await Itinerary.findOneAndUpdate(
 			{ _id: id },
@@ -32,7 +33,7 @@ const itinerarycontroller = {
 			  rating,
 			  duration,
 			  price,
-			  hashtag
+			  hashtag,
 			 }
 		);
 		res.json({ Respuesta: 'Okey' });
@@ -46,7 +47,7 @@ const itinerarycontroller = {
 			rating,
 			duration,
 			price,
-			hashtag
+			hashtag,
 		} = req.body;
 
 		const nuevoitinerario = new Itinerary({
@@ -57,7 +58,7 @@ const itinerarycontroller = {
 			rating,
 			duration,
 			price,
-			hashtag
+			hashtag,
 		});
 
 		await nuevoitinerario.save(); //espera grabar 

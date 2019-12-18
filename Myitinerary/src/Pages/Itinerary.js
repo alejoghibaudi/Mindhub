@@ -6,20 +6,20 @@ import Carousel from '../Components/Carousel';
 
 
 class Itinerary extends React.Component {
-
+  
   static propTypes = {
-		getItinerary: PropTypes.func.isRequired,
-		itinerary: PropTypes.object.isRequired,
-  };
- componentDidMount() {
+    getItinerary: PropTypes.func.isRequired,
+    itinerary: PropTypes.object.isRequired,
+    };
+ 
+    componentDidMount() {
   let ciudad = this.props.match.params.ciudad;
-  this.props.getItinerary(ciudad)
-  };
+  this.props.getItinerary(ciudad);
+ }
 
 
   render() {
     const { itinerary } = this.props.itinerary;
-    console.log(itinerary);
     return (
       <div>
         {itinerary.length >0 ?
@@ -41,4 +41,4 @@ const mapStateToProps = state => ({
 	itinerary: state.itineraryitem,
 });
 
-export default connect(mapStateToProps, { getItinerary })(Itinerary);
+export default connect(mapStateToProps, { getItinerary})(Itinerary);
