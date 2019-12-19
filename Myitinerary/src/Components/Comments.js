@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from "prop-types";
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import {Link } from 'react-router-dom'
 
 import {
     postComments
@@ -58,7 +59,7 @@ export class Comments extends Component {
                             </Form>
                         </div>
                     </div>
-                    : ""}
+                    : <Link to="/login"><button type="button">Please Log in to add comments</button></Link>}
 
             </div>
         )

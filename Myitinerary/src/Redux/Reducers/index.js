@@ -5,12 +5,11 @@ import {combineReducers} from 'redux';
 import Cityreducer from './Cityreducers';
 import Itineraryreducer from './Itineraryreducers';
 import Commentreducer from './Commentreducer';
-import Favreducer from './Favreducer';
 //exportamos todos los reducers combinados
 export default combineReducers({
     cityitem:Cityreducer,
     itineraryitem:Itineraryreducer,
-    commentitem:Commentreducer,
-    favitem:Favreducer
+    commentitem:Commentreducer
+  
 });
 

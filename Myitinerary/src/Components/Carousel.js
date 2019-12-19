@@ -8,7 +8,7 @@ import PropTypes from 'prop-types'
 import {getAllComment} from '../Redux/Actions/Commentactions'
 import jwt_decode from 'jwt-decode'
 import Comments from './Comments'
-import Favourite from './Fav'
+
 
 class DemoCarousel extends React.Component {
     

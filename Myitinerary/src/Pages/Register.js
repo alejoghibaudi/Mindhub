@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { register } from '../Components/Userfunctions';
+import Sidebar from '../Components/Sidebar'
 
 class Register extends Component {
   constructor() {
@@ -39,6 +40,7 @@ class Register extends Component {
     return (
       <div className="container">
         <div className="row">
+          <Sidebar/>
           <div className="col-md-6 mt-5 mx-auto">
             <form noValidate onSubmit={this.onSubmit}>
               <h1 className="h3 mb-3 font-weight-normal">Register</h1>
